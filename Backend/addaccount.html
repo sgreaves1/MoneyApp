@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add account</title>
+</head>
+<body>
+<h1>Add new account</h1>
+<form name="accounts" action="/accounts" method="POST">
+	<div class="textbox">
+		<label>account name:</label>
+		<input type="text" name="account-name">
+	</div>
+
+	<div class="textbox">
+		<label>account ammount:</label>
+		<input type="number" name="account-amount">
+	</div>
+
+	<div class="textbox">
+		<label>account type:</label>
+		<select name="account-type">
+			<option value="Debit">Debit</option>
+			<option value="Credit">Credit</option>
+		</select>
+	</div>
+
+	<div class="textbox">
+		<input type="submit" value="submit">
+	</div>
+</form>
+</body>
+</html>
