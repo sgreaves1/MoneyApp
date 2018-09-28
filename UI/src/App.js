@@ -5,18 +5,17 @@ import './App.css';
 class App extends Component {
     constructor() {
         super();
-    this.state = {
-        response: []
-    };
-}
+        this.state = {
+            response: []
+        };
+    }
 
-  componentDidMount(){
+    componentDidMount(){
 
       fetch('accounts')
           .then(res => res.json())
           .then(json => {this.setState({response: json}); console.log(json)});
-
-  }
+    }
 
     render() {
     return (
