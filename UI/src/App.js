@@ -29,12 +29,18 @@ class App extends Component {
             <div class="grid-container">
                     {this.state.response.map(el => (
                         <div class="grid-item">
-                            <p>
+                            <a href="#" className="fill-div">
                             Name: {el['account-name']}
                             <br/>{el['account-amount']}
-                            </p>
+                            </a>
                         </div>
                     ))}
+
+                    <div class="grid-item">
+                        <a href="#" class="fill-div">
+                        +
+                        </a>
+                    </div>
 
             </div>
       </div>
