@@ -1,10 +1,13 @@
 import React from "react";
+import { Accounts } from "./Accounts";
+import { AddAccount } from "./AddAccount";
 
 export class Home extends React.Component {
     render() {
         return (
             <div>
-                <p>In a new component!</p>
+                <Accounts/>
+                <AddAccount/>
             </div>
         );
     }
