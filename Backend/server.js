@@ -9,6 +9,7 @@ var lodash = require('lodash');
 var Database = require('./Database');
 var database = new Database("moneyapp", "mongodb://localhost:27017/moneyapp");
 var port = process.env.PORT || 4000;
+var collection = 'accounts';
 
 // express.static will serve everything 
 // with in client as a static resource
@@ -29,6 +30,8 @@ app.get('/accounts', (req, res) => database.GetAllForCollection("accounts", (res
 app.get('/addaccount', (req, res) => res.sendFile(__dirname + '/addaccount.html'));
 
 app.get('/account/:id', (req, res) => database.Get("accounts",req.params.id, (result) => {res.json(result);}));
+
+app.get('/deleteaccount/:id', (req, res) => database.Delete(collection, req.params.id));
 
 app.post('/accounts', (req, res) => {
     database.Create("accounts", req.body);

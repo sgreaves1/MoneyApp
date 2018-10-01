@@ -1,6 +1,8 @@
 import React from "react";
 import './Accounts.css';
 
+import logo from './logo.svg';
+
 export class Accounts extends React.Component{
     constructor() {
         super();
@@ -26,6 +28,9 @@ export class Accounts extends React.Component{
                             <a href="#" className="fill-div">
                                 Name: {el['account-name']}
                                 <br/>{el['account-amount']}
+                            </a>
+                            <a href='/accountdelete/'>
+                                <img src={logo} width="30"/>
                             </a>
                         </div>
                     ))}
