@@ -3,7 +3,7 @@ import './Accounts.css';
 
 import logo from './logo.svg';
 
-export class Accounts extends React.Component{
+export class Accounts extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -12,17 +12,18 @@ export class Accounts extends React.Component{
     }
 
     componentDidMount() {
+        this.getAccounts();
+    }
+
+    getAccounts() {
         fetch('accounts')
             .then(res => res.json())
-            .then(json => {this.setState({response: json}); console.log(json)});
+            .then(json => {this.setState({response: json})});
     }
 
     delete(id, e) {
-        console.log(id.toString());
         fetch('deleteaccount/' + id.toString());
-        fetch('accounts')
-            .then(res => res.json())
-            .then(json => {this.setState({response: json}); console.log(json)});
+        this.getAccounts();
     }
 
     render() {
