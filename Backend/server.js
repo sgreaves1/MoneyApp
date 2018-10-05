@@ -29,9 +29,9 @@ app.get('/accounts', (req, res) => database.GetAllForCollection("accounts", (res
 
 app.get('/addaccount', (req, res) => res.sendFile(__dirname + '/addaccount.html'));
 
-app.get('/account/:id', (req, res) => database.Get("accounts",req.params.id, (result) => {res.json(result);}));
+app.get('/account/:id', (req, res) => {console.log('accounts'); database.Get("accounts",req.params.id, (result) => {res.json(result);})});
 
-app.get('/deleteaccount/:id', (req, res) => database.Delete(collection, req.params.id));
+app.get('/deleteaccount/:id', (req, res) => {console.log('delete'); database.Delete(collection, req.params.id), (result) => {console.log("returned");}});
 
 app.post('/accounts', (req, res) => {
     database.Create("accounts", req.body);

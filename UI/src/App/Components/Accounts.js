@@ -11,8 +11,15 @@ export class Accounts extends React.Component{
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
+        fetch('accounts')
+            .then(res => res.json())
+            .then(json => {this.setState({response: json}); console.log(json)});
+    }
 
+    delete(id, e) {
+        console.log(id.toString());
+        fetch('deleteaccount/' + id.toString());
         fetch('accounts')
             .then(res => res.json())
             .then(json => {this.setState({response: json}); console.log(json)});
@@ -29,9 +36,8 @@ export class Accounts extends React.Component{
                                 Name: {el['account-name']}
                                 <br/>{el['account-amount']}
                             </a>
-                            <a href='/accountdelete/'>
-                                <img src={logo} width="30"/>
-                            </a>
+                            <button onClick={this.delete.bind(this, el['_id'])}>
+                            </button>
                         </div>
                     ))}
                 </div>

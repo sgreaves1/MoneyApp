@@ -88,7 +88,18 @@ Database.prototype.Update = function(collection, obj)
 
 Database.prototype.Delete = function(collection, id)
 {
-
+    MongoClient.connect(this.connection, { useNewUrlParser: true }, (err, db) => {
+        if (err)
+        {
+            console.log(err);
+            return;
+        }
+        var dbo = db.db(this.dbName);
+        var myquery = {_id: ObjectID(id)};
+        console.log(myquery);
+        dbo.collection(collection).deleteOne(myquery);
+        console.log("deleted");
+    });
 }
 
 module.exports = Database;
