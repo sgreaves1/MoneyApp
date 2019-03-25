@@ -7,3 +7,5 @@ Backend/Data/
 UI/build/
 
 UI/public/favicon\.ico
+
+\.idea/workspace\.xml
