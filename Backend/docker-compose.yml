@@ -6,9 +6,9 @@ services:
       - .:/app
     working_dir: /app
     environment:
-      - PORT=3000
+      - PORT=4000
     ports:
-      - "3000:3000"
+      - "4000:4000"
     command: ["npm", "start"]
   mongodb:
       image: mongo:3.6
