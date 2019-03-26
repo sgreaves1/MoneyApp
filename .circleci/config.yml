@@ -1,0 +1,17 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build-backend:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:11.6.0
+
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run npm install
+      - run ./build.sh

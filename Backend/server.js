@@ -1,15 +1,29 @@
 // TODO: Create a basic server with express
 // that will send back the index.html file on a GET request to '/'
 // it should then send back jsonData on a GET to /data
-
+const nconf = require('nconf');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var lodash = require('lodash');
 var Database = require('./Database');
-var database = new Database("moneyapp", "mongodb://localhost:27017/moneyapp");
 var port = process.env.PORT || 4000;
 var collection = 'accounts';
+
+
+nconf.argv({
+    'MONGODB_URL':{
+        alias: 'mongodb-url',
+        describe: 'URL for mongo database',
+        demand: false
+    }}
+)
+    .env()
+    .defaults({
+        'MONGODB_URL':'mongodb://localhost:27017/moneyapp'
+    });
+
+var database = new Database("moneyapp", nconf.get('MONGODB_URL'));
 
 // express.static will serve everything 
 // with in client as a static resource
