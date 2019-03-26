@@ -36,7 +36,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-    - build
+    - build-backend
     - approve:
         type: approval
         filters:
@@ -44,8 +44,8 @@ workflows:
             only:
               - master
         requires:
-          - build
-    - package:
+          - build-backend
+    - package-backend:
         filters:
           branches:
             only:
