@@ -13,8 +13,8 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - checkout
-      - run npm install
-      - run ./build.sh
+      - run: npm install
+      - run: ./build.sh
 
   package-backend:
     docker:
