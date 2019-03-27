@@ -27,8 +27,8 @@ jobs:
       - run: npm install
 
       - run: |
-          TAG=latest
-          docker build -t   $DOCKER_REPO/moneyappbackend:$TAG .
+          TAG=0.1.$CIRCLE_BUILD_NUM
+          docker build -t   $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG .
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push $DOCKER_REPO/moneyappbackend:$TAG
 
