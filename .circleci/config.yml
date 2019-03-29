@@ -32,6 +32,7 @@ jobs:
           cd Backend
           TAG=$(<VERSION)
           docker build -t   $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG .
+          docker tag $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG docker tag $DOCKER_REPO/$DOCKER_IMAGENAME:latest
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG
 
