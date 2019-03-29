@@ -30,7 +30,7 @@ jobs:
 
       - run: |
           cd Backend
-          TAG=0.1.$CIRCLE_BUILD_NUM
+          TAG=$(<VERSION)
           docker build -t   $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG .
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           docker push $DOCKER_REPO/$DOCKER_IMAGENAME:$TAG
