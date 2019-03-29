@@ -4,13 +4,22 @@ export class AddAccount extends React.Component{
     constructor() {
         super();
         this.state = {
-            showAddAccount: false
+            showAddAccount: false,
+            showCreditLimit: false
         };
         this.onClick = this.onClick.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
 
     onClick() {
         this.setState({ showAddAccount: true });
+    }
+
+    onChange(event) {
+        if (event.target.value === "Credit")
+            this.setState({ showCreditLimit: true});
+        else
+            this.setState({ showCreditLimit: false});
     }
 
     render() {
@@ -32,9 +41,18 @@ export class AddAccount extends React.Component{
                                 <input type="number" name="account-amount"/>
                             </div>
 
+                            {this.state.showCreditLimit ?
+                                <div className="textbox">
+                                    <label>credit limit:</label>
+                                    <input type="number" name="account-limit"/>
+                                </div>
+                                : <div/>
+                            }
+
+
                             <div className="textbox">
                                 <label>account type:</label>
-                                <select name="account-type">
+                                <select name="account-type" onChange={this.onChange}>
                                     <option value="Debit">Debit</option>
                                     <option value="Credit">Credit</option>
                                 </select>
