@@ -38,13 +38,13 @@ export class AddAccount extends React.Component{
 
                             <div className="textbox">
                                 <label>account amount:</label>
-                                <input type="number" name="account-amount"/>
+                                <input type="number" step="0.01" name="account-amount"/>
                             </div>
 
                             {this.state.showCreditLimit ?
                                 <div className="textbox">
                                     <label>credit limit:</label>
-                                    <input type="number" name="account-limit"/>
+                                    <input type="number" step="0.01" name="account-limit"/>
                                 </div>
                                 : <div/>
                             }

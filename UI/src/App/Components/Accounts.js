@@ -34,8 +34,9 @@ export class Accounts extends React.Component {
                     {this.state.response.map(el => (
                         <div class="grid-item">
                             <a href="#" className="fill-div">
-                                Name: {el['account-name']}
+                                {el['account-name']}
                                 <br/>{el['account-amount']}
+                                <br/>{el['account-limit']}
                             </a>
                             <button onClick={this.delete.bind(this, el['_id'])}>
                             </button>
